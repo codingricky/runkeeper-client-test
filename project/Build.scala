@@ -14,7 +14,8 @@ object ApplicationBuild extends Build {
     javaEbean,
     "com.github.codingricky" % "runkeeper-client" % "0.1-SNAPSHOT",
     "org.webjars" %% "webjars-play" % "2.1.0-3",
-    "org.webjars" % "bootstrap" % "3.0.0"
+    "org.webjars" % "bootstrap" % "3.0.0",
+    "com.google.code.gson" % "gson" % "2.2.4"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
