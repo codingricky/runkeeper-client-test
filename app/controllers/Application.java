@@ -3,12 +3,20 @@ package controllers;
 import play.*;
 import play.mvc.*;
 
-import views.html.*;
+import views.html.authorized;
+import views.html.index;
 
 public class Application extends Controller {
   
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        Configuration configuration = Play.application().configuration();
+        String clientId = configuration.getString("rk.clientId");
+        String redirectUri = configuration.getString("rk.redirectUrl");
+        return ok(index.render(clientId, redirectUri));
+    }
+
+    public static Result authorized() {
+        return ok(authorized.render());
     }
   
 }

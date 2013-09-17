@@ -4,15 +4,17 @@ import play.Project._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "runkeeper-client-test"
-  val appVersion      = "1.0-SNAPSHOT"
+  val appName = "runkeeper-client-test"
+  val appVersion = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
     // Add your project dependencies here,
     javaCore,
     javaJdbc,
     javaEbean,
-    "com.github.codingricky" % "runkeeper-client" % "0.1-SNAPSHOT"
+    "com.github.codingricky" % "runkeeper-client" % "0.1-SNAPSHOT",
+    "org.webjars" %% "webjars-play" % "2.1.0-3",
+    "org.webjars" % "bootstrap" % "3.0.0"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

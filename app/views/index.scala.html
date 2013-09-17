@@ -1,7 +1,11 @@
-@(message: String)
+@(clientId: String)(redirectUrl: String)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@main("index") {
+
+    <div class="jumbotron">
+        <div class="container">
+            <a href='https://runkeeper.com/apps/authorize?client_id=@clientId&redirect_uri=@redirectUrl&response_type=code&state='>
+                <img src='http://static1.runkeeper.com/images/assets/connect-blue-white-200x38.png'/></a>
+        </div>
+    </div>
 }
