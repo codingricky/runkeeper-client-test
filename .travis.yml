@@ -3,15 +3,14 @@ jdk:
 - oraclejdk7
 env:
   matrix:
-    - PLAY_VERSION=2.1.3 RK_REDIRECT_URL=http://runkeeper-client.herokuapp.com/authorized
+  - PLAY_VERSION=2.1.3 RK_REDIRECT_URL=http://runkeeper-client.herokuapp.com/authorized
   global:
-    secure: Ttz8BI6mX+SH7kRSbYGaMnAlcwVxzIL9ZP9hiXRL+YWRBHmOJ6CazpRqptYeQu4eBPHXLwvpr09hdKqbUoojHYmdCs5eGiNQQaPzgMLykFEJnlQxrxAAleYMjIIKkaNq+v5051KHxoWMdNdhnz/Mh7nVcmTVOH5MMlW5auYEj/4=
+  - secure: Ttz8BI6mX+SH7kRSbYGaMnAlcwVxzIL9ZP9hiXRL+YWRBHmOJ6CazpRqptYeQu4eBPHXLwvpr09hdKqbUoojHYmdCs5eGiNQQaPzgMLykFEJnlQxrxAAleYMjIIKkaNq+v5051KHxoWMdNdhnz/Mh7nVcmTVOH5MMlW5auYEj/4=
+  - secure: IytU8QIf8+8/IfqHnVt6oar+v0Z3todeJHovIRpZsoK+R15P6CDh7RO4O40wnAukl9wRtR88zTakHqHsBVESa/IaqBqB5rF5cDOtSIzc1hafpK+6B2b9tueETlEO8Ff5K65nKnBlC1YzsjvEJeZ9JJfth+EVTZ8RkxSapl+NjIU=
 before_script:
-  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
-  - unzip -q play-${PLAY_VERSION}.zip
-
+- wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+- unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
-
 deploy:
   provider: heroku
   api_key:
@@ -20,6 +19,9 @@ deploy:
   on:
     repo: codingricky/runkeeper-client-test
   run:
-    - heroku config:set RK_REDIRECT_URL=${RK_REDIRECT_URL}
-    - heroku config:set RK_CLIENT_ID=${RK_CLIENT_ID}
-
+  - config:set RK_REDIRECT_URL=${RK_REDIRECT_URL}
+  - config:set RK_CLIENT_ID=${RK_CLIENT_ID}
+  - config:set RK_CLIENT_SECRET=${RK_CLIENT_SECRET}
+  - restart
+notifications:
+  email: false
