@@ -1,0 +1,11 @@
+language: java
+jdk:
+- oraclejdk7
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: VOAeI5urEY/cJbyFKRhgnCCUlGgweDbb+4+zRiy6bMiYixqOhpxGl/RvHQXFmXwpPn60ZHmDXYQE7nhk8IUksbH2QoaKZO//TpuhFVREnxhjaDLHa8gSKeHK8CzysKUyhkhFWs4pCzktRm4rNhof6Ets/Idy7g9S5D5OHFFimvc=
+  app: runkeeper-client
+  on:
+    repo: codingricky/runkeeper-client-test
