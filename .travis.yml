@@ -3,6 +3,7 @@ jdk:
 - oraclejdk7
 env:
   - PLAY_VERSION=2.1.3 # Latest 2.1.x
+  - RK_REDIRECT_URL=http://runkeeper-client.herokuapp.com/authorized
 
 before_script:
   - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
