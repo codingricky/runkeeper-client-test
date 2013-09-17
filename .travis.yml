@@ -19,9 +19,6 @@ deploy:
   on:
     repo: codingricky/runkeeper-client-test
   run:
-  - config:set RK_REDIRECT_URL=${RK_REDIRECT_URL}
-  - config:set RK_CLIENT_ID=${RK_CLIENT_ID}
-  - config:set RK_CLIENT_SECRET=${RK_CLIENT_SECRET}
   - restart
 notifications:
   email: false
