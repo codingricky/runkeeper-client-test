@@ -35,7 +35,7 @@ public class IntegrationTest {
                 browser.$("#login").click();
                 signInToRunkeeper(browser, userName, password);
 
-                browser.fluentWait().withTimeout(10, TimeUnit.SECONDS).until(new Predicate<WebDriver>() {
+                browser.fluentWait().withTimeout(20, TimeUnit.SECONDS).withMessage("Timed out waiting for User title").until(new Predicate<WebDriver>() {
                     @Override
                     public boolean apply(@Nullable WebDriver webDriver) {
                         return webDriver.getTitle().equalsIgnoreCase("User");
