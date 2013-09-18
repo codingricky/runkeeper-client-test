@@ -1,9 +1,14 @@
+import com.google.common.base.Predicate;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import play.Play;
 import play.libs.F.Callback;
 import play.test.TestBrowser;
+
+import javax.annotation.Nullable;
+import java.util.concurrent.TimeUnit;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.fail;
@@ -16,7 +21,7 @@ public class IntegrationTest {
      * in this example we just check if the welcome page is being shown
      */
     @Test
-    public void test() {
+    public void crawlSite() {
         running(testServer(9000, fakeApplication(inMemoryDatabase())), PhantomJSDriver.class, new Callback<TestBrowser>() {
             public void invoke(final TestBrowser browser) {
                 String userName = Play.application().configuration().getString("userName");
@@ -29,7 +34,17 @@ public class IntegrationTest {
 
                 browser.$("#login").click();
                 signInToRunkeeper(browser, userName, password);
-                browser.pageSource().contains("userID");
+
+                browser.fluentWait().withTimeout(10, TimeUnit.SECONDS).until(new Predicate<WebDriver>() {
+                    @Override
+                    public boolean apply(@Nullable WebDriver webDriver) {
+                        return webDriver.getPageSource().contains("userID");
+                    }
+                });
+
+                assertThat(browser.pageSource()).contains("userID");
+                browser.$("#\\/weight").click();
+
             }
         });
     }

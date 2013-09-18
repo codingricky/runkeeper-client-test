@@ -16,6 +16,8 @@ import views.html.response;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static controllers.JsonHelper.toJson;
+
 public class Application extends Controller {
 
     public static Result index() {
@@ -42,13 +44,7 @@ public class Application extends Controller {
     @With(HasAuthorisationAction.class)
     public static Result user() {
         User user = new Client(session().get("code")).getUser();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String userAsJson = gson.toJson(user);
-
-        Pattern pattern = Pattern.compile("/[a-zA-Z]+");
-        Matcher matcher = pattern.matcher(userAsJson);
-        String s = matcher.replaceAll("<a href='/client$0'>$0</a>");
-        return ok(response.render(s));
+        return ok(response.render(toJson(user)));
     }
 
     public static Result logout() {
