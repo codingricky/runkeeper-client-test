@@ -12,8 +12,9 @@ object ApplicationBuild extends Build {
     javaCore,
     javaJdbc,
     javaEbean,
+    filters,
     "com.github.codingricky" % "runkeeper-client" % "0.1-SNAPSHOT",
-    "org.webjars" %% "webjars-play" % "2.1.0-3",
+    "org.webjars" %% "webjars-play" % "2.1.0-2",
     "org.webjars" % "bootstrap" % "3.0.0",
     "com.google.code.gson" % "gson" % "2.2.4"
   )

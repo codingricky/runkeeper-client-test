@@ -9,6 +9,7 @@ import play.Configuration;
 import play.Play;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.With;
 import views.html.index;
 import views.html.response;
 
@@ -38,6 +39,7 @@ public class Application extends Controller {
         return redirect(routes.Application.user());
     }
 
+    @With(HasAuthorisationAction.class)
     public static Result user() {
         User user = new Client(session().get("code")).getUser();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -49,4 +51,8 @@ public class Application extends Controller {
         return ok(response.render(s));
     }
 
+    public static Result logout() {
+        session().clear();
+        return redirect(routes.Application.index());
+    }
 }
