@@ -38,6 +38,7 @@ public class IntegrationTest {
                 browser.fluentWait().withTimeout(20, TimeUnit.SECONDS).withMessage("Timed out waiting for User title").until(new Predicate<WebDriver>() {
                     @Override
                     public boolean apply(@Nullable WebDriver webDriver) {
+                        System.out.println(webDriver.getPageSource());
                         return webDriver.getTitle().equalsIgnoreCase("User");
                     }
                 });
