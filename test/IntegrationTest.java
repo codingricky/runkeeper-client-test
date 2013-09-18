@@ -1,4 +1,5 @@
 import org.junit.Test;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import play.libs.F.Callback;
 import play.test.TestBrowser;
 
@@ -13,7 +14,7 @@ public class IntegrationTest {
      */
     @Test
     public void test() {
-        running(testServer(3333, fakeApplication(inMemoryDatabase())), FIREFOX, new Callback<TestBrowser>() {
+        running(testServer(3333, fakeApplication(inMemoryDatabase())), PhantomJSDriver.class, new Callback<TestBrowser>() {
             public void invoke(TestBrowser browser) {
                 browser.goTo("http://localhost:3333");
                 assertThat(browser.pageSource()).contains("Home");

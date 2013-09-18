@@ -16,7 +16,8 @@ object ApplicationBuild extends Build {
     "com.github.codingricky" % "runkeeper-client" % "0.1-SNAPSHOT",
     "org.webjars" %% "webjars-play" % "2.1.0-2",
     "org.webjars" % "bootstrap" % "3.0.0",
-    "com.google.code.gson" % "gson" % "2.2.4"
+    "com.google.code.gson" % "gson" % "2.2.4",
+    "com.github.detro.ghostdriver" % "phantomjsdriver" % "1.0.4" % "test"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
