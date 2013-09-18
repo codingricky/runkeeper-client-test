@@ -9,6 +9,8 @@ env:
   - secure: IytU8QIf8+8/IfqHnVt6oar+v0Z3todeJHovIRpZsoK+R15P6CDh7RO4O40wnAukl9wRtR88zTakHqHsBVESa/IaqBqB5rF5cDOtSIzc1hafpK+6B2b9tueETlEO8Ff5K65nKnBlC1YzsjvEJeZ9JJfth+EVTZ8RkxSapl+NjIU=
   - secure: lrReIjqLlhbinQFGGjZ2pPZ+0cEFkSQxT4pbGSjz6nPBTQUC99eI2pjd28S8W0qucPXLLceIxXCfBfBjk6SJWC3CzfbLUTx84z1PX/SctC3UDWqKxr5kHagGRZxAmNQp0MAkn25qClFezV0L956mzUZsKQLYxReWaISGyR+EBao=
   - secure: G+ql8gI1Lc6p4xxkZy4vN+T1HQk9BjwalkQQlJgJDB3X4puDoa+fVhdKM+Bqlw+Knud4hTb/bgKO41jlShxsnPpRGaCVL0YH3tihzIOJgdSf+0AJlbMLtxycWITTBft4Iu4Ggm966O1A+0PkEs0RvHDiaNn99ca/AovXtCoqMUk=
+  - secure: cFMTGV3lme3rfmef0F5jO2zTMvjoFqKx4/LoUtCchQq6qtHTUxoAU7Asu6uzy/BR0A20Ze9mMxyhhzaZjL1ejgljcRhiWOZwTVIubTj1VcOuhoOhyjH4bVuxfWadCzObWW+lP7U7rXpgsRWuFCOPXoLBoEuD/gPOxtTdOrSLADg=
+  - secure: Ar/oA58Wf7lfzKaWopEMuKNrfAZ7o2DEq2/HXeqWY7W3+fbTQ/qsjvTL38kbixxKS/09jSqyLqhrtBLmDNBTmal//1xEY4CB4W0T9qrrpC5LQHzj3OicykVuevDrbGS4PH6iofB8W6wNYvvnmbaYyIyJK/OONtFwCCs8Jq7JHM0=
 before_script:
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
