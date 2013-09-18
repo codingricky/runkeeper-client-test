@@ -38,13 +38,13 @@ public class IntegrationTest {
                 browser.fluentWait().withTimeout(10, TimeUnit.SECONDS).until(new Predicate<WebDriver>() {
                     @Override
                     public boolean apply(@Nullable WebDriver webDriver) {
-                        return webDriver.getPageSource().contains("userID");
+                        return webDriver.getTitle().equalsIgnoreCase("User");
                     }
                 });
 
-                assertThat(browser.pageSource()).contains("userID");
+                assertThat(browser.title()).isEqualToIgnoringCase("User");
                 browser.$("#\\/weight").click();
-
+                assertThat(browser.title()).isEqualToIgnoringCase("Weight");
             }
         });
     }

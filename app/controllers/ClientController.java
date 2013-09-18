@@ -15,7 +15,7 @@ public class ClientController extends Controller {
     public static Result weight() {
         String code = session().get("code");
         WeightFeed weightFeed = new Client(code).getWeightFeed();
-        return ok(response.render(toJson(weightFeed)));
+        return ok(response.render("Weight", toJson(weightFeed)));
     }
 //
 //    @With(HasAuthorisationAction.class)

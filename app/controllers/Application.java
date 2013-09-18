@@ -44,7 +44,7 @@ public class Application extends Controller {
     @With(HasAuthorisationAction.class)
     public static Result user() {
         User user = new Client(session().get("code")).getUser();
-        return ok(response.render(toJson(user)));
+        return ok(response.render("User", toJson(user)));
     }
 
     public static Result logout() {
