@@ -1,6 +1,7 @@
 package controllers;
 
 import com.github.codingricky.runkeeperclient.Client;
+import com.github.codingricky.runkeeperclient.model.FitnessActivityFeed;
 import com.github.codingricky.runkeeperclient.model.WeightFeed;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -17,14 +18,11 @@ public class ClientController extends Controller {
         WeightFeed weightFeed = new Client(code).getWeightFeed();
         return ok(response.render("Weight", toJson(weightFeed)));
     }
-//
-//    @With(HasAuthorisationAction.class)
-//    public static Result weight(Integer id) {
-//        String code = session().get("code");
-//        Client client = new Client(code);
-//        WeightFeed weightFeed = client.getWeightFeed();
-//        client.get
-//        return ok(response.render(toJson(weightFeed)));
-//    }
 
+    @With(HasAuthorisationAction.class)
+    public static Result fitnessActivities() {
+        String code = session().get("code");
+        FitnessActivityFeed fitnessActivities = new Client(code).getFitnessActivities();
+        return ok(response.render("Fitness Activities", toJson(fitnessActivities)));
+    }
 }

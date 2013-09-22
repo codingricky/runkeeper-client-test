@@ -3,7 +3,7 @@ jdk:
 - oraclejdk7
 env:
   matrix:
-  - PLAY_VERSION=2.1.4 RK_REDIRECT_URL=http://localhost:9000/authorized
+  - PLAY_VERSION=2.2.0 RK_REDIRECT_URL=http://localhost:9000/authorized
   global:
   - secure: Ttz8BI6mX+SH7kRSbYGaMnAlcwVxzIL9ZP9hiXRL+YWRBHmOJ6CazpRqptYeQu4eBPHXLwvpr09hdKqbUoojHYmdCs5eGiNQQaPzgMLykFEJnlQxrxAAleYMjIIKkaNq+v5051KHxoWMdNdhnz/Mh7nVcmTVOH5MMlW5auYEj/4=
   - secure: IytU8QIf8+8/IfqHnVt6oar+v0Z3todeJHovIRpZsoK+R15P6CDh7RO4O40wnAukl9wRtR88zTakHqHsBVESa/IaqBqB5rF5cDOtSIzc1hafpK+6B2b9tueETlEO8Ff5K65nKnBlC1YzsjvEJeZ9JJfth+EVTZ8RkxSapl+NjIU=
@@ -24,5 +24,3 @@ deploy:
     repo: codingricky/runkeeper-client-test
   run:
   - restart
-notifications:
-  email: false
